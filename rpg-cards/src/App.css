@@ -1,0 +1,327 @@
+.guild-page {
+  --guild-divider: 1px solid rgb(193 161 106 / 25%);
+  --guild-frame-gap: clamp(1.5rem, 3vw, 2.25rem);
+  width: min(100%, 1800px);
+  margin-inline: auto;
+  padding: clamp(2rem, 4vw, 4rem) clamp(1rem, 3vw, 2.5rem) 4rem;
+}
+
+.guild-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: var(--guild-frame-gap);
+  padding-bottom: clamp(1.25rem, 2vw, 1.75rem);
+  border-bottom: var(--guild-divider);
+  text-align: center;
+}
+
+.guild-crest {
+  flex: 0 0 auto;
+  width: 36px;
+  height: auto;
+  stroke: var(--brass);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+}
+
+.guild-header h1 {
+  font-family: var(--heading-font);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+  text-indent: 0.12em;
+  text-transform: uppercase;
+}
+
+.guild-header h1 span {
+  display: block;
+  margin-top: 0.6rem;
+  color: var(--brass);
+  font-family: var(--heading-font);
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  text-indent: 0.06em;
+  text-transform: none;
+}
+
+.guild-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.75rem);
+  align-items: stretch;
+  padding-bottom: var(--guild-frame-gap);
+  border-bottom: var(--guild-divider);
+}
+
+.card {
+  --card-glow: 193 161 106;
+  --card-active-shadow:
+    0 0 18px rgb(var(--card-glow) / 32%),
+    0 0 42px rgb(var(--card-glow) / 16%),
+    0 18px 32px rgb(0 0 0 / 30%);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 5px;
+  background: #1c1d19;
+  box-shadow: 0 12px 28px rgb(0 0 0 / 24%);
+  transition: box-shadow 280ms ease;
+}
+
+.card__portrait {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 5 / 7;
+  background: #24251f;
+}
+
+.card__portrait::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(180deg, transparent 55%, rgb(28 29 25 / 20%) 72%, #1c1d19 100%);
+  pointer-events: none;
+}
+
+.card__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--portrait-position, center top);
+  transition: transform 500ms ease;
+}
+
+.card__content {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  margin-top: -2rem;
+  padding: 0 clamp(1rem, 1.7vw, 1.5rem) 1.5rem;
+}
+
+.card__title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  font-family: var(--heading-font);
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  overflow-wrap: anywhere;
+}
+
+.card__badge {
+  margin-left: auto;
+  color: #d9b87e;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.card__reveal {
+  display: grid;
+  grid-template-rows: 1fr;
+}
+
+.card__reveal-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.card:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 5px;
+  box-shadow: var(--card-active-shadow);
+}
+
+@media (forced-colors: active) {
+  .card:focus-visible {
+    outline-color: Highlight;
+  }
+}
+
+.card__details {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgb(193 161 106 / 22%);
+}
+
+.card__role {
+  color: #d8c7a7;
+  font-family: var(--heading-font);
+  font-size: 1.0625rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.card__stats {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 0.95fr) minmax(0, 1.25fr);
+  gap: 0.5rem;
+}
+.card__stat {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.card__stat + .card__stat {
+  padding-left: 0.5rem;
+  border-left: 1px solid rgb(193 161 106 / 15%);
+}
+
+.card__stat dt {
+  color: #c7c0b1;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  overflow-wrap: anywhere;
+}
+
+.card__stat dd {
+  margin-top: auto;
+  padding-top: 0.35rem;
+  color: #eee3ce;
+  font-family: var(--heading-font);
+  font-size: 1.625rem;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+
+.card.fallen {
+  --card-glow: 183 121 107;
+}
+
+.card.fallen .card__image {
+  filter: saturate(0.4);
+}
+
+.card.fallen .card__details {
+  border-top-color: rgb(197 132 119 / 25%);
+}
+
+.card__fallen-status {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0;
+  color: #dda899;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.card__fallen-icon {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  color: #b7796b;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card__portrait {
+    min-height: 24rem;
+  }
+
+  .card__content {
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    margin-top: 0;
+    padding-top: 2rem;
+    background: linear-gradient(180deg, transparent, rgb(28 29 25 / 96%) 2rem, #1c1d19);
+  }
+
+  .card__reveal {
+    grid-template-rows: 0fr;
+    opacity: 0;
+    pointer-events: none;
+    transition: grid-template-rows 280ms ease, opacity 280ms ease;
+  }
+
+  .card:is(:hover, :focus-within) .card__reveal {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .card:is(:hover, :focus-within) {
+    box-shadow: var(--card-active-shadow);
+  }
+
+  .card:is(:hover, :focus-within) .card__image {
+    transform: scale(1.035);
+  }
+
+}
+
+@media (max-width: 1199px) {
+  .guild-page {
+    max-width: 1120px;
+  }
+
+  .guild-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .card__portrait {
+    aspect-ratio: 4 / 5;
+  }
+
+  .card__content {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (max-width: 599px) {
+  .guild-page {
+    max-width: 520px;
+  }
+
+  .guild-header {
+    gap: 1rem;
+  }
+
+  .guild-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card__image,
+  .card__reveal {
+    transition: none;
+  }
+
+  .card:is(:hover, :focus-within) .card__image {
+    transform: none;
+  }
+}

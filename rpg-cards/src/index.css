@@ -1,0 +1,44 @@
+:root {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  color: #ede7da;
+  background: #111210;
+  color-scheme: dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --text-muted: #b1ac9f;
+  --brass: #c1a16a;
+  --heading-font: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 280px;
+  min-height: 100svh;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgb(137 103 52 / 12%), transparent 65%),
+    linear-gradient(180deg, #191a16 0%, #111210 80%);
+}
+
+#root {
+  min-height: 100svh;
+}
+
+h1,
+h2,
+p,
+dl,
+dd {
+  margin: 0;
+}
+
+::selection {
+  color: #fff6df;
+  background: #68532e;
+}
