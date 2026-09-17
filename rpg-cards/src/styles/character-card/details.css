@@ -1,0 +1,59 @@
+.card__quote {
+  min-height: 1.4em;
+  margin: 0.9rem 0 0;
+  color: #8f8b83;
+  font-family: var(--heading-font);
+  font-size: clamp(0.72rem, 0.85vw, 0.86rem);
+  font-style: italic;
+  line-height: 1.4;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.card__reveal {
+  display: grid;
+  grid-template-rows: 1fr;
+}
+
+.card__reveal-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.card__details {
+  display: grid;
+  gap: 1.25rem;
+  padding: 1rem 0.15rem 0;
+}
+
+.card__lore {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.card__description {
+  color: #c6beb1;
+  font-family: var(--heading-font);
+  font-size: clamp(0.76rem, 0.86vw, 0.9rem);
+  line-height: 1.52;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 7px rgb(0 0 0 / 75%);
+}
+
+.card__veteran {
+  color: #d9b87e;
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+  text-shadow: 0 0 10px rgb(217 184 126 / 38%);
+  text-transform: uppercase;
+}
+
+.card__fallen-image {
+  display: block;
+  width: min(82%, 17rem);
+  height: auto;
+  margin: 0.1rem auto 0.2rem;
+  filter: drop-shadow(0 0 12px rgb(174 36 27 / 32%));
+}

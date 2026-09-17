@@ -1,16 +1,13 @@
 :root {
-  font-family: "Segoe UI", system-ui, sans-serif;
+  --heading-font: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
   color: #ede7da;
   background: #111210;
   color-scheme: dark;
+  font-family: "Segoe UI", system-ui, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  --text-muted: #b1ac9f;
-  --brass: #c1a16a;
-  --heading-font: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
 }
 
 * {
@@ -18,12 +15,22 @@
 }
 
 body {
-  margin: 0;
   min-width: 280px;
   min-height: 100svh;
+  margin: 0;
+  isolation: isolate;
+  background: #111210;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
   background:
-    radial-gradient(ellipse at 50% 0%, rgb(137 103 52 / 12%), transparent 65%),
-    linear-gradient(180deg, #191a16 0%, #111210 80%);
+    linear-gradient(180deg, rgb(10 12 10 / 35%), rgb(10 12 10 / 65%)),
+    url("../assets/Background.png") center / cover no-repeat;
+  content: "";
+  pointer-events: none;
 }
 
 #root {
